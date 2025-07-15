@@ -12,6 +12,10 @@ Il dataset finale contiene 39.574 righe e 21 feature predittive più la target.
 Recenti studi su dataset meteorologici australiani [1], [2] hanno evidenziato come le reti neurali artificiali (ANN, RNN) forniscano risultati migliori rispetto a metodi tradizionali (KNN, DT, RF) per la previsione della pioggia. In particolare, [2] mostra che combinazioni di ANN e Random Forest offrono prestazioni superiori su dati mensili australiani. Inoltre, altri lavori su modelli ibridi (MLP, ConvLSTM, CNN-LSTM) dimostrano l’efficacia delle reti profonde nella previsione meteorologica su scala globale [3]–[5].
 
 ## Importazione dei dati e analisi preliminare
+Dataset originale:
+Questo dataset meteorologico australiano è stato scaricato dal repository Kaggle:  [Rain in Australia on Kaggle](https://www.kaggle.com/datasets/jsphyg/weather-dataset-rattle-package). Contiene circa 10 anni di osservazioni meteorologiche giornaliere provenienti da numerose stazioni meteorologiche in tutta l'Australia. Le osservazioni giornaliere sono disponibili anche su: [Bureau of Meteorology - Australia](http://www.bom.gov.au/climate/dwo/IDCJDW0000.shtml)
+[Copyright: Commonwealth of Australia 2010, Bureau of Meteorology. Licenza del dataset: CC0 – Pubblico Dominio.]
+
 Nel notebook di preprocessing è stata eseguita una prima analisi delle correlazioni, che ha evidenziato una correlazione positiva tra Humidity3pm e RainTomorrow (+0.45), e negativa con Sunshine (-0.45).
 Per quanto riguarda la distribuzione delle classi della variabile target (RainTomorrow), è risultata sbilanciata, con la classe “No Rain” molto più frequente della classe “Rain”.
 Non sono state applicate tecniche di bilanciamento durante il preprocessing (come oversampling o undersampling), le classi risultano sufficientemente bilanciate.
@@ -62,3 +66,13 @@ Il modello ha dimostrato buona capacità di generalizzazione, evitando overfitti
 [4] A. Khan, S. Verma, and R. Gupta, “Weather Prediction Using CNN-LSTM for Time Series Analysis: A Case Study on Delhi Temperature Data” Procedia Computer Science, vol. 218, pp. 290–298, 2023.
 
 [5] P. N. Soman, B. G. Raj and V. Diwan, “Rainfall Prediction Using Deep Learning Techniques: A Review” Information, vol. 13, no. 4, p. 163, 2022.
+
+## NB: come eseguire
+I notebook principali sono:
+- `PreparingAustraliaWeatherDataset_.ipynb` – preprocessing e analisi dei dati
+  [Notebook di preprocessing](PreparingAustraliaWeatherDataset_.ipynb)
+- `Previsione_Pioggia_ML.ipynb` – addestramento e valutazione del modello
+  [Notebook di training](Previsione_Pioggia_ML.ipynb)
+
+Si possono eseguire su Google Colab oppure localmente con Python 3.8+.
+
