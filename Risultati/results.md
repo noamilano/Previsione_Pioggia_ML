@@ -21,7 +21,7 @@ Nel grafico sottostante si osserva:
 - Le curve convergono senza divergere → indica **assenza di overfitting**.
 
 ![Andamento accuracy e loss](accuracy.png)
-
+![Accuracy](acc_epochs.png)
 ---
 
 ## Prestazioni Finali
