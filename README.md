@@ -47,10 +47,10 @@ In questo progetto è stata sviluppata una rete neurale profonda per la previsio
 Dopo una fase di preprocessing condotta separatamente (normalizzazione, encoding, gestione dei missing values), è stato progettato e ottimizzato un modello con 6 layer nascosti, regolarizzato tramite dropout e batch normalization, e addestrato con l’ottimizzatore Adam.
 Durante la fase sperimentale sono state testate diverse configurazioni di iperparametri e tecniche di ottimizzazione. Il modello finale ha raggiunto:
 
-Accuracy su test finale: 0.86
-Bias stimato: 8.0%
-Varianza stimata: 0.62%
-F1-score test: 0.64
+-Accuracy su test finale: 0.86
+-Bias stimato: 8.0%
+-Varianza stimata: 0.62%
+-F1-score test: 0.64
 
 Sebbene altri modelli come RMS-3 e Adam-2 abbiano fornito buoni risultati, Adam-3 si è distinto per avere: il bias più basso (8,03%), una varianza ben controllata (0,62%), una maggiore capacità di apprendimento grazie a un’architettura di rete profonda e stabilità durante l’addestramento, senza segni di possibile overfitting. Inoltre, i test con regolarizzazione L1/L2 hanno mostrato che, sebbene riducessero la varianza, aumentavano il bias. Per questo motivo, è stato scelto Adam-3 come modello finale, senza regolarizzazione L1/L2.
 Il modello ha dimostrato buona capacità di generalizzazione, evitando overfitting e mantenendo performance stabili sia su training che test set.
