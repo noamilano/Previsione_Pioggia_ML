@@ -17,8 +17,7 @@ Questo dataset meteorologico australiano è stato scaricato dal repository Kaggl
 [Copyright: Commonwealth of Australia 2010, Bureau of Meteorology. Licenza del dataset: CC0 – Pubblico Dominio.]
 
 Nel notebook di preprocessing è stata eseguita una prima analisi delle correlazioni, che ha evidenziato una correlazione positiva tra Humidity3pm e RainTomorrow (+0.45), e negativa con Sunshine (-0.45).
-Per quanto riguarda la distribuzione delle classi della variabile target (RainTomorrow), è risultata sbilanciata, con la classe “No Rain” molto più frequente della classe “Rain”.
-Non sono state applicate tecniche di bilanciamento durante il preprocessing (come oversampling o undersampling), le classi risultano sufficientemente bilanciate.
+Per quanto riguarda la distribuzione delle classi della variabile target (RainTomorrow), è risultata sbilanciata, con la classe “No Rain” molto più frequente della classe “Rain”. La variabile target presenta uno sbilanciamento (23% di casi positivi). Nonostante l’assenza di tecniche di riequilibrio, il modello ha raggiunto buone prestazioni generali, anche se con una minore sensibilità verso la classe minoritaria.
 
 ## Iperparametri: giustificazione della scelta
 ### Numero di epoche
@@ -45,15 +44,15 @@ La scelta dell’architettura è stata giustificata con test empirici su bias e 
 
 ## Conclusioni
 In questo progetto è stata sviluppata una rete neurale profonda per la previsione della pioggia del giorno successivo in Australia, utilizzando un dataset meteorologico reale.
-Dopo una fase di preprocessing condotta separatamente (normalizzazione, encoding, gestione dei missing values), è stato progettato e ottimizzato un modello con 7 layer nascosti, regolarizzato tramite dropout e batch normalization, e addestrato con l’ottimizzatore Adam.
+Dopo una fase di preprocessing condotta separatamente (normalizzazione, encoding, gestione dei missing values), è stato progettato e ottimizzato un modello con 6 layer nascosti, regolarizzato tramite dropout e batch normalization, e addestrato con l’ottimizzatore Adam.
 Durante la fase sperimentale sono state testate diverse configurazioni di iperparametri e tecniche di ottimizzazione. Il modello finale ha raggiunto:
 
-Accuracy su test finale: 0.84
-Bias stimato: 14.86%
-Varianza stimata: 0.24%
-F1-score test: 0.66
-Il bilanciamento delle classi è stato gestito efficacemente tramite class_weight='balanced' durante l’addestramento, senza alterare il dataset tramite oversampling.
+Accuracy su test finale: 0.86
+Bias stimato: 8.0%
+Varianza stimata: 0.62%
+F1-score test: 0.64
 
+Sebbene altri modelli come RMS-3 e Adam-2 abbiano fornito buoni risultati, Adam-3 si è distinto per avere: il bias più basso (8,03%), una varianza ben controllata (0,62%), una maggiore capacità di apprendimento grazie a un’architettura di rete profonda e stabilità durante l’addestramento, senza segni di possibile overfitting. Inoltre, i test con regolarizzazione L1/L2 hanno mostrato che, sebbene riducessero la varianza, aumentavano il bias. Per questo motivo, è stato scelto Adam-3 come modello finale, senza regolarizzazione L1/L2.
 Il modello ha dimostrato buona capacità di generalizzazione, evitando overfitting e mantenendo performance stabili sia su training che test set.
 
 ## Bibliografia
