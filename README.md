@@ -9,7 +9,9 @@ Il preprocessing è stato effettuato in un notebook separato (vedi PreparingAust
 Il dataset finale contiene 39.574 righe e 21 feature predittive più la target.
 
 ## Background e letteratura
-Recenti studi su dataset meteorologici australiani [1], [2] hanno evidenziato come le reti neurali artificiali (ANN, RNN) forniscano risultati migliori rispetto a metodi tradizionali (KNN, DT, RF) per la previsione della pioggia. In particolare, [2] mostra che combinazioni di ANN e Random Forest offrono prestazioni superiori su dati mensili australiani. Inoltre, altri lavori su modelli ibridi (MLP, ConvLSTM, CNN-LSTM) dimostrano l’efficacia delle reti profonde nella previsione meteorologica su scala globale [3]–[5].
+La previsione della pioggia è un classico problema di classificazione binaria (RainTomorrow = 0/1), caratterizzato da dati meteorologici complessi e sbilanciati. Studi recenti su dataset australiani hanno mostrato che le reti neurali offrono prestazioni migliori rispetto a modelli tradizionali come k-NN, Decision Tree e Random Forest [1]. In particolare, Farman et al. [2] hanno evidenziato che le reti neurali, anche combinate con RF, migliorano la previsione delle precipitazioni mensili in più città australiane.
+
+Inoltre, confronti diretti tra diverse architetture neurali hanno confermato l’efficacia dei modelli profondi: Ebtehaj e Bonakdari [3], ad esempio, hanno mostrato come CNN e LSTM superino i metodi convenzionali nella previsione intensiva oraria delle precipitazioni, con applicazioni alla gestione del rischio di alluvioni. Queste evidenze supportano la scelta di un modello Multilayer Perceptron (MLP) con più strati nascosti e ottimizzazione Adam, senza applicare bilanciamento delle classi, così da analizzare le prestazioni sulle metriche principali (Accuracy, F1, ROC-AUC).
 
 ## Importazione dei dati e analisi preliminare
 Dataset originale:
@@ -56,15 +58,11 @@ Sebbene altri modelli come RMS-3 e Adam-2 abbiano fornito buoni risultati, Adam-
 Il modello ha dimostrato buona capacità di generalizzazione, evitando overfitting e mantenendo performance stabili sia su training che test set.
 
 ## Bibliografia
-[1] M. Sarasa‑Cabezuelo, J. A. Ortega and M. L. Sein-Echaluce, “Prediction of Rainfall in Australia Using Machine Learning” International Journal of Advanced Computer Science and Applications (IJACSA), vol. 13, no. 4, pp. 627–635, 2022.
+[1] A. Sarasa-Cabezuelo, “Prediction of Rainfall in Australia Using Machine Learning,” Information, vol. 13, no. 4, p. 163, 2022. doi: https://doi.org/10.3390/info13040163
 
-[2] M. Farman, N. A. Bakar, and I. O. Basir, “A Comparative Study of Machine Learning and Deep Learning Models for Rainfall Prediction in Australian Cities” International Journal of Advanced Computer Science and Applications (IJACSA), vol. 16, no. 4, pp. 735–741, 2025.
+[2] Hira Farman, Qurat-ul-ain Mastoi, Qaiser Abbas, Saad Ahmad, Abdulaziz Alshahrani, Salman Jan and Toqeer Ali Syed, “A Comparative Study of Deep Learning and Modern Machine Learning Methods for Predicting Australia’s Precipitation” International Journal of Advanced Computer Science and Applications(IJACSA), 16(4), 2025. doi: http://dx.doi.org/10.14569/IJACSA.2025.0160493 
 
-[3] A. Abbot, T. Nguyen, and L. K. Thomas, “Hybrid Neural Network Models for Monthly Rainfall Prediction: A Case Study in Queensland, Australia” Expert Systems with Applications, vol. 220, p. 119846, 2023.
-
-[4] A. Khan, S. Verma, and R. Gupta, “Weather Prediction Using CNN-LSTM for Time Series Analysis: A Case Study on Delhi Temperature Data” Procedia Computer Science, vol. 218, pp. 290–298, 2023.
-
-[5] P. N. Soman, B. G. Raj and V. Diwan, “Rainfall Prediction Using Deep Learning Techniques: A Review” Information, vol. 13, no. 4, p. 163, 2022.
+[3] I. Ebtehaj and H. Bonakdari, “CNN vs. LSTM: A Comparative Study of Hourly Precipitation Intensity Prediction as a Key Factor in Flood Forecasting Frameworks,” Atmosphere, vol. 15, no. 9, p. 1082, 2024. doi: https://doi.org/10.3390/atmos15091082
 
 ## NB: come eseguire
 I notebook principali sono:
